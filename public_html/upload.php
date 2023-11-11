@@ -16,7 +16,7 @@ $smarty->display('../templates/upload.tpl');
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // アップロードされたファイル情報を取得
-    $file = $_FILES['image'];
+    $file = $_FILES['pdfFile'];
 
     // アップロードされたファイルのチェック
     if ($file["error"] == UPLOAD_ERR_OK) {

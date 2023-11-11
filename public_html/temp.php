@@ -229,5 +229,36 @@ $this->arr_Yoyaku_Bi = $arr_Yoyaku_waku_tmp;
 //   print("<br />" . "出力05:::" . $gg7 . "<br />");
 
 oci_free_statement($stid);
-    
+
 //=========================================== end
+
+
+// ====================================================== start
+
+// 入力文字列
+$inputString = "11月10日(金) 11:00"; // または "11月10日(金) 9:00"
+
+// 正規表現を使用して時間部分を抽出
+$pattern = '/(\d{1,2}:\d{2})/';
+preg_match($pattern, $inputString, $matches);
+
+// === $matches print_r 
+/*
+    Array
+    (
+    [0] => 11:00
+    [1] => 11:00
+    )
+*/
+
+if (!empty($matches)) {
+    // 時間部分を取得
+    $time = str_replace(':', '', $matches[1]);
+
+    // 結果を出力
+    echo $time;
+} else {
+    echo "時間が見つかりませんでした。";
+}
+
+// ====================================================== END
